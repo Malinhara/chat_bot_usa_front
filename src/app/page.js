@@ -7,7 +7,7 @@ import './login.css'; // Import the CSS file
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [error, setError] = useState(null);
+  const [error] = useState(null);
 
 
   const handleLogin = (e) => {
