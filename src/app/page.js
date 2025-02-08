@@ -9,7 +9,7 @@ const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState(null);
-  const [loading, setLoading] = useState(false);
+  const [setLoading] = useState(false);
   const [isRegistering, setIsRegistering] = useState(false);  // To toggle between login and register forms
 
   const router = useRouter();  // Correct usage in Next.js 13+ app directory
