@@ -1,4 +1,8 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+1 step git clone - git clone https://github.com/Malinhara/chat_bot_usa_front.git
+
+2 step - npm install
+
+3 step - npm run dev
 
 ## Getting Started
 
