@@ -43,7 +43,7 @@ const Chat = () => {
 
     
     try {
-      const response = await fetch("http://localhost:8100/chat", {
+      const response = await fetch("http://localhost:8000/chat", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ query: inputMessage, doc_name: selectedFile}),
@@ -67,7 +67,7 @@ const Chat = () => {
 
   const fetchUploadedFiles = async () => {
     try {
-      const response = await fetch("http://localhost:8100/uploaded_files");
+      const response = await fetch("http://127.0.0.1:8000/uploaded_files");
       const data = await response.json();
      
       console.log(data)
@@ -85,14 +85,15 @@ const Chat = () => {
     formData.append("file", file);
 
     try {
-      const response = await fetch("http://localhost:8100/upload", {
+      const response = await fetch("http://127.0.0.1:8000/upload", {
         method: "POST",
         body: formData,
       });
 
       const data = await response.json();
       if (response.ok) {
-        setUploadedFiles((prev) => [...prev, { name: file.name, url: data.doc_name }]);
+        setUploadedFiles((prev) => [...prev, file.name]); // Store filenames as strings
+
       } else {
         console.error("Upload failed:", data.error);
       }
@@ -107,7 +108,7 @@ const Chat = () => {
   console.log(fileName)
     try {
       // Send a request to the backend to delete the file and associated vector store data
-      const response = await fetch(`http://localhost:8100/delete_file`, {
+      const response = await fetch(`http://127.0.0.1:8000/delete_file`, {
         method: "DELETE",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ filename: fileName }),
